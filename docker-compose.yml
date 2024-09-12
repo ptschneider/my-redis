@@ -1,0 +1,14 @@
+#
+version: '3'
+services:
+  my-redis:
+    image: docker01mxlinux.acme.local:5000/redis/redis-stack-server:7.2.0-v12 
+    hostname: my-redis
+    container_name: my-redis
+    environment:
+      REDIS_ARGS: '--requirepass GoatHead'
+    ports:
+      - 6379:6379
+      - 6380:8001
+    volumes:
+      - /work/pschneider/redis-stack-server/myredisdata:/data
